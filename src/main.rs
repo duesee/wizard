@@ -1,44 +1,24 @@
 #![allow(dead_code)]
 
-use std::{fmt::Display, io::Write, str::FromStr};
+use std::{fmt::Display, str::FromStr};
 
+use dialoguer::{theme::ColorfulTheme, Input};
 use wizard::WizardDerive;
 
 pub trait Wizard: Sized {
-    fn prompt(msg: &str, indent: usize) -> Self;
+    fn prompt(msg: &str) -> Self;
 }
 
 impl<T> Wizard for T
 where
-    T: FromStr,
+    T: FromStr + Display + Clone,
     T::Err: Display,
 {
-    fn prompt(msg: &str, indent: usize) -> Self {
-        loop {
-            print!("{}{msg}: ", "  ".repeat(indent));
-            let _ = std::io::stdout().flush();
-
-            let line = {
-                let mut line = String::new();
-                match std::io::stdin().read_line(&mut line) {
-                    Ok(_) => {}
-                    Err(error) => {
-                        println!("{}[!] {error} (try again)", "  ".repeat(indent));
-                        continue;
-                    }
-                }
-
-                line.trim().to_owned()
-            };
-
-            match line.parse() {
-                Ok(res) => return res,
-                Err(error) => {
-                    println!("{}[!] {error} (try again)", "  ".repeat(indent));
-                    continue;
-                }
-            }
-        }
+    fn prompt(msg: &str) -> Self {
+        Input::with_theme(&ColorfulTheme::default())
+            .with_prompt(msg)
+            .interact_text()
+            .unwrap()
     }
 }
 
@@ -65,7 +45,7 @@ enum Encryption {
 }
 
 fn main() {
-    let config: Config = Wizard::prompt("Config", 0);
+    let config: Config = Wizard::prompt("Config");
 
     println!("\nThanks! Here is your value: {config:?}");
 }

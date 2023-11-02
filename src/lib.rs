@@ -27,15 +27,13 @@ pub fn derive(input: TokenStream) -> TokenStream {
                 }
 
                 quote!(
-                    #name: Wizard::prompt(#doc, indent + 1)
+                    #name: Wizard::prompt(#doc)
                 )
             });
 
             let expanded = quote!(
                 impl Wizard for #name {
-                    fn prompt(msg: &str, indent: usize) -> Self {
-                        println!("{}# {msg}", "  ".repeat(indent));
-
+                    fn prompt(msg: &str) -> Self {
                         Self {
                             #(#fields,)*
                         }
@@ -46,7 +44,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
             expanded.into()
         }
         Data::Enum(data) => {
-            let options = data.variants.iter().enumerate().map(|(no, variant)| {
+            let options = data.variants.iter().map(|variant| {
                 let mut doc = String::from("<Unknown>");
 
                 for attr in &variant.attrs {
@@ -63,7 +61,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
                 }
 
                 quote!(
-                    println!("{indent_str}{}) {}", #no, #doc);
+                    #doc,
                 )
             });
 
@@ -71,28 +69,28 @@ pub fn derive(input: TokenStream) -> TokenStream {
                 let name = &variant.ident;
 
                 quote!(
-                    #no => { break Self::#name },
+                    #no => { Self::#name },
                 )
             });
 
             let expanded = quote!(
                 impl Wizard for #name {
-                    fn prompt(msg: &str, indent: usize) -> Self {
-                        let indent_str = "  ".repeat(indent);
+                    fn prompt(msg: &str) -> Self {
+                        use dialoguer::Select;
 
-                        println!("{indent_str}{msg}: (choose one)");
-                        #(#options)*
+                        let selections = &[
+                            #(#options)*
+                        ];
 
-                        loop {
-                            let index: usize = Wizard::prompt("=>", indent);
+                        let num = Select::with_theme(&ColorfulTheme::default())
+                            .with_prompt(msg)
+                            .items(&selections[..])
+                            .interact()
+                            .unwrap();
 
-                            match index {
-                                #(#arms)*
-                                _ => {
-                                    println!("{indent_str}[!] No such option");
-                                    continue;
-                                }
-                            }
+                        match num {
+                            #(#arms)*
+                            _ => unreachable!(),
                         }
                     }
                 }
