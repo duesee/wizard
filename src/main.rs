@@ -42,26 +42,30 @@ where
     }
 }
 
+/// Config
 #[derive(Debug, WizardDerive)]
 struct Config {
-    /// Host
-    host: String,
-    /// Inner
-    inner: Inner,
-    /// Port
-    port: u16,
-}
-
-#[derive(Debug, WizardDerive)]
-struct Inner {
+    /// Name
+    name: String,
     /// IPv4
     ipv4: std::net::Ipv4Addr,
+    /// Port
+    port: u16,
+    /// Transport Encryption
+    encryption: Encryption,
 }
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+/// Encryption
+#[derive(Debug, WizardDerive)]
+enum Encryption {
+    /// No encryption (insecure)
+    Insecure,
+    /// TLS encryption
+    Tls,
+}
+
+fn main() {
     let config: Config = Wizard::prompt("Config", 0);
 
-    println!("{config:?}");
-
-    Ok(())
+    println!("\nThanks! Here is your value: {config:?}");
 }
