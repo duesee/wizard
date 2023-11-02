@@ -26,30 +26,12 @@ enum Encryption {
 }
 
 fn main() {
-    let config: Config = Wizard::prompt("Config", 0);
+    let config: Config = Wizard::prompt("Config");
 
     println!("\nThanks! Here is your value: {config:?}");
 }
 ```
 
-... leads to this terminal interaction ...
+... provides this terminal interaction ...
 
-```text
-$ cargo run
-# Config
-  Name: My config
-  IPv4: 1.1.1.999
-  [!] invalid IPv4 address syntax (try again)
-  IPv4: 9.9.9.9
-  Port: abc
-  [!] invalid digit found in string (try again)
-  Port: 143
-  Transport Encryption: (choose one)
-  0) No encryption (insecure)
-  1) TLS encryption
-  =>: 2
-  [!] No such option
-  =>: 1
-
-Thanks! Here is your value: Config { name: "My config", ipv4: 9.9.9.9, port: 143, encryption: Tls }
-```
+[![demo](https://asciinema.org/a/e2jzYWC3FY0NC5z504iwveTV4.svg)](https://asciinema.org/a/e2jzYWC3FY0NC5z504iwveTV4)
