@@ -1,13 +1,9 @@
-[package]
-name = "wizard"
-version = "0.1.0"
-edition = "2021"
+[workspace]
+resolver = "2"
+members = [
+    "wizard",
+    "wizard-derive",
+]
 
-[dependencies]
-dialoguer = "0.11.0"
-quote = "1.0.33"
-syn = "2.0.38"
-
-[lib]
-proc-macro = true
-
+[patch.crates-io]
+wizard = { path = "wizard" }

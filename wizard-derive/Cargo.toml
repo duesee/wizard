@@ -1,0 +1,12 @@
+[package]
+name = "wizard-derive"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+dialoguer = "0.11.0"
+quote = "1.0.33"
+syn = "2.0.38"
+
+[lib]
+proc-macro = true

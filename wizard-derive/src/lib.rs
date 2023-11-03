@@ -76,7 +76,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
             let expanded = quote!(
                 impl Wizard for #name {
                     fn prompt(msg: &str) -> Self {
-                        use dialoguer::Select;
+                        use dialoguer::{Select, theme::ColorfulTheme};
 
                         let selections = &[
                             #(#options)*
