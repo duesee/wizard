@@ -85,6 +85,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
                         let num = Select::with_theme(&ColorfulTheme::default())
                             .with_prompt(msg)
                             .items(&selections[..])
+                            .default(0)
                             .interact()
                             .unwrap();
 
