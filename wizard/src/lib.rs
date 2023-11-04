@@ -15,6 +15,7 @@ where
     fn prompt(msg: &str) -> Self {
         Input::with_theme(&ColorfulTheme::default())
             .with_prompt(msg)
+            .allow_empty(true)
             .interact_text()
             .unwrap()
     }
