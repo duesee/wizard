@@ -34,4 +34,4 @@ fn main() {
 
 ... provides this terminal interaction ...
 
-[![demo](https://asciinema.org/a/e2jzYWC3FY0NC5z504iwveTV4.svg)](https://asciinema.org/a/e2jzYWC3FY0NC5z504iwveTV4)
+![./out.gif](./out.gif)
