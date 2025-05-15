@@ -13,6 +13,8 @@ struct Config {
     port: u16,
     /// Transport Encryption
     encryption: Encryption,
+    /// Domains
+    domains: Vec<String>,
 }
 
 /// Encryption
