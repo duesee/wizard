@@ -27,12 +27,12 @@ pub fn derive(input: TokenStream) -> TokenStream {
                 }
 
                 quote!(
-                    #name: Wizard::prompt(#doc)
+                    #name: wizard::Wizard::prompt(#doc)
                 )
             });
 
             let expanded = quote!(
-                impl Wizard for #name {
+                impl wizard::Wizard for #name {
                     fn prompt(msg: &str) -> Self {
                         Self {
                             #(#fields,)*
@@ -86,7 +86,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
                     }
 
                     quote!(
-                        #name: Wizard::prompt(#doc)
+                        #name: wizard::Wizard::prompt(#doc)
                     )
                 });
 
@@ -100,7 +100,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
             });
 
             let expanded = quote!(
-                impl Wizard for #name {
+                impl wizard::Wizard for #name {
                     fn prompt(msg: &str) -> Self {
                         use dialoguer::{Select, theme::ColorfulTheme};
 
