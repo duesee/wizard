@@ -35,6 +35,8 @@ enum Service {
     Caddy {
         /// Workers
         workers: u16,
+        /// Certificate chain
+        fullchain: Option<String>,
     },
     /// Zola
     Zola {

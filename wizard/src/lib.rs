@@ -58,6 +58,36 @@ impl_wizard!(Ipv6Addr);
 
 // -----
 
+impl<T> Wizard for Option<T>
+where
+    T: Wizard,
+{
+    fn prompt(msg: &str) -> Self {
+        loop {
+            let line = {
+                eprint!("Specify `{msg}`? (y/N): ");
+                std::io::stdout().flush().unwrap();
+                let mut line = String::new();
+                std::io::stdin().read_line(&mut line).unwrap();
+
+                line.trim().to_ascii_lowercase()
+            };
+
+            match line.as_str() {
+                "y" | "Y" => {
+                    return Some(T::prompt("Value"));
+                }
+                "n" | "N" | "" => {
+                    return None;
+                }
+                _ => {
+                    eprintln!("Invalid input");
+                }
+            }
+        }
+    }
+}
+
 impl<T> Wizard for Vec<T>
 where
     T: Wizard,
@@ -77,7 +107,7 @@ where
 
             match line.as_str() {
                 "y" | "Y" => {
-                    let item = T::prompt((out.len() + 1).to_string().as_str());
+                    let item = T::prompt(format!("{})", out.len() + 1).as_str());
                     out.push(item);
                 }
                 "n" | "N" | "" => {
@@ -111,8 +141,8 @@ where
 
             match line.as_str() {
                 "y" | "Y" => {
-                    let key = K::prompt(format!("{} (key)", out.len() + 1).as_str());
-                    let value = V::prompt(format!("{} (value)", out.len() + 1).as_str());
+                    let key = K::prompt(format!("{}) (Key)", out.len() + 1).as_str());
+                    let value = V::prompt(format!("{}) (Value)", out.len() + 1).as_str());
                     out.insert(key, value);
                 }
                 "n" | "N" | "" => {
