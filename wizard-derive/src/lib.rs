@@ -68,8 +68,34 @@ pub fn derive(input: TokenStream) -> TokenStream {
             let arms = data.variants.iter().enumerate().map(|(no, variant)| {
                 let name = &variant.ident;
 
+                let fields = variant.fields.iter().map(|field| {
+                    let name = &field.ident;
+                    let mut doc = String::from("<Unknown>");
+
+                    for attr in &field.attrs {
+                        match &attr.meta {
+                            Meta::NameValue(name_value) => match &name_value.value {
+                                Expr::Lit(lit) => match &lit.lit {
+                                    Lit::Str(s) => doc = s.value().trim().to_string(),
+                                    _ => unimplemented!(),
+                                },
+                                _ => unimplemented!(),
+                            },
+                            _ => unimplemented!(),
+                        }
+                    }
+
+                    quote!(
+                        #name: Wizard::prompt(#doc)
+                    )
+                });
+
                 quote!(
-                    #no => { Self::#name },
+                    #no => {
+                        Self::#name {
+                            #(#fields,)*
+                        }
+                    },
                 )
             });
 

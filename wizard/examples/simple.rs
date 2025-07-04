@@ -1,20 +1,22 @@
 #![allow(dead_code)]
 
+use std::collections::HashMap;
+
 use wizard::{Wizard, WizardDerive};
 
 /// Config
 #[derive(Debug, WizardDerive)]
 struct Config {
-    /// Name
-    name: String,
-    /// IPv4
-    ipv4: std::net::Ipv4Addr,
+    /// Hostname
+    hostname: String,
+    /// Addresses (IPv4)
+    ipv4s: Vec<std::net::Ipv4Addr>,
     /// Port
     port: u16,
     /// Transport Encryption
     encryption: Encryption,
-    /// Domains
-    domains: Vec<String>,
+    /// Services (subdomain: service)
+    services: HashMap<String, Service>,
 }
 
 /// Encryption
@@ -24,6 +26,21 @@ enum Encryption {
     Insecure,
     /// TLS encryption
     Tls,
+}
+
+/// Service
+#[derive(Debug, WizardDerive)]
+enum Service {
+    /// Caddy
+    Caddy {
+        /// Workers
+        workers: u16,
+    },
+    /// Zola
+    Zola {
+        /// Content
+        content: Vec<String>,
+    },
 }
 
 fn main() {
