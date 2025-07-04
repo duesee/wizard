@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, Data, DeriveInput, Expr, Fields, Lit, Meta};
+use syn::{parse_macro_input, Attribute, Data, DeriveInput, Expr, Fields, Lit, Meta};
 
 #[proc_macro_derive(WizardDerive)]
 pub fn derive(input: TokenStream) -> TokenStream {
@@ -11,20 +11,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
         Data::Struct(data) => {
             let fields = data.fields.iter().map(|field| {
                 let name = &field.ident;
-                let mut doc = String::from("<Unknown>");
-
-                for attr in &field.attrs {
-                    match &attr.meta {
-                        Meta::NameValue(name_value) => match &name_value.value {
-                            Expr::Lit(lit) => match &lit.lit {
-                                Lit::Str(s) => doc = s.value().trim().to_string(),
-                                _ => unimplemented!(),
-                            },
-                            _ => unimplemented!(),
-                        },
-                        _ => unimplemented!(),
-                    }
-                }
+                let doc = extract_doc(&field.attrs).unwrap_or(String::from("<Unknown>"));
 
                 quote!(
                     #name: wizard::Wizard::prompt(#doc)
@@ -45,20 +32,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
         }
         Data::Enum(data) => {
             let options = data.variants.iter().map(|variant| {
-                let mut doc = String::from("<Unknown>");
-
-                for attr in &variant.attrs {
-                    match &attr.meta {
-                        Meta::NameValue(name_value) => match &name_value.value {
-                            Expr::Lit(lit) => match &lit.lit {
-                                Lit::Str(s) => doc = s.value().trim().to_string(),
-                                _ => unimplemented!(),
-                            },
-                            _ => unimplemented!(),
-                        },
-                        _ => unimplemented!(),
-                    }
-                }
+                let doc = extract_doc(&variant.attrs).unwrap_or(String::from("<Unknown>"));
 
                 quote!(
                     #doc,
@@ -72,20 +46,8 @@ pub fn derive(input: TokenStream) -> TokenStream {
                     Fields::Named(named) => {
                         let fields = named.named.iter().map(|field| {
                             let name = &field.ident;
-
-                            let mut doc = String::from("<Unknown>");
-                            for attr in &field.attrs {
-                                match &attr.meta {
-                                    Meta::NameValue(name_value) => match &name_value.value {
-                                        Expr::Lit(lit) => match &lit.lit {
-                                            Lit::Str(s) => doc = s.value().trim().to_string(),
-                                            _ => unimplemented!(),
-                                        },
-                                        _ => unimplemented!(),
-                                    },
-                                    _ => unimplemented!(),
-                                }
-                            }
+                            let doc =
+                                extract_doc(&field.attrs).unwrap_or(String::from("<Unknown>"));
 
                             quote!(
                                 #name: wizard::Wizard::prompt(#doc)
@@ -102,19 +64,8 @@ pub fn derive(input: TokenStream) -> TokenStream {
                     }
                     Fields::Unnamed(unnamed) => {
                         let fields = unnamed.unnamed.iter().map(|field| {
-                            let mut doc = String::from("<Unknown>");
-                            for attr in &field.attrs {
-                                match &attr.meta {
-                                    Meta::NameValue(name_value) => match &name_value.value {
-                                        Expr::Lit(lit) => match &lit.lit {
-                                            Lit::Str(s) => doc = s.value().trim().to_string(),
-                                            _ => unimplemented!(),
-                                        },
-                                        _ => unimplemented!(),
-                                    },
-                                    _ => unimplemented!(),
-                                }
-                            }
+                            let doc =
+                                extract_doc(&field.attrs).unwrap_or(String::from("<Unknown>"));
 
                             quote!(
                                 wizard::Wizard::prompt(#doc)
@@ -161,4 +112,17 @@ pub fn derive(input: TokenStream) -> TokenStream {
             panic!("Wizard is not implemented yet for `union`");
         }
     }
+}
+
+fn extract_doc(attrs: &[Attribute]) -> Option<String> {
+    attrs.iter().find_map(|attr| match &attr.meta {
+        Meta::NameValue(name_value) if name_value.path.is_ident("doc") => match &name_value.value {
+            Expr::Lit(lit) => match &lit.lit {
+                Lit::Str(s) => Some(s.value().trim().to_string()),
+                _ => None,
+            },
+            _ => None,
+        },
+        _ => None,
+    })
 }
