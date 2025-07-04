@@ -67,7 +67,7 @@ where
 
         loop {
             let line = {
-                print!("Add item to `{msg}`? (y/N): ");
+                eprint!("Add item to `{msg}`? (y/N): ");
                 std::io::stdout().flush().unwrap();
                 let mut line = String::new();
                 std::io::stdin().read_line(&mut line).unwrap();
@@ -84,7 +84,7 @@ where
                     return out;
                 }
                 _ => {
-                    println!("Invalid input");
+                    eprintln!("Invalid input");
                 }
             }
         }
@@ -101,7 +101,7 @@ where
 
         loop {
             let line = {
-                print!("Add entry to `{msg}`? (y/N): ");
+                eprint!("Add entry to `{msg}`? (y/N): ");
                 std::io::stdout().flush().unwrap();
                 let mut line = String::new();
                 std::io::stdin().read_line(&mut line).unwrap();
@@ -119,7 +119,7 @@ where
                     return out;
                 }
                 _ => {
-                    println!("Invalid input");
+                    eprintln!("Invalid input");
                 }
             }
         }

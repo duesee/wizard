@@ -46,5 +46,5 @@ enum Service {
 fn main() {
     let config: Config = Wizard::prompt("Config");
 
-    println!("\nThanks! Here is your value: {config:?}");
+    println!("{config:#?}");
 }
