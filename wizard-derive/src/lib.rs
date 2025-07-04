@@ -1,6 +1,6 @@
 use proc_macro::TokenStream;
 use quote::quote;
-use syn::{parse_macro_input, Data, DeriveInput, Expr, Lit, Meta};
+use syn::{parse_macro_input, Data, DeriveInput, Expr, Fields, Lit, Meta};
 
 #[proc_macro_derive(WizardDerive)]
 pub fn derive(input: TokenStream) -> TokenStream {
@@ -68,35 +68,67 @@ pub fn derive(input: TokenStream) -> TokenStream {
             let arms = data.variants.iter().enumerate().map(|(no, variant)| {
                 let name = &variant.ident;
 
-                let fields = variant.fields.iter().map(|field| {
-                    let name = &field.ident;
-                    let mut doc = String::from("<Unknown>");
+                match &variant.fields {
+                    Fields::Named(named) => {
+                        let fields = named.named.iter().map(|field| {
+                            let name = &field.ident;
 
-                    for attr in &field.attrs {
-                        match &attr.meta {
-                            Meta::NameValue(name_value) => match &name_value.value {
-                                Expr::Lit(lit) => match &lit.lit {
-                                    Lit::Str(s) => doc = s.value().trim().to_string(),
+                            let mut doc = String::from("<Unknown>");
+                            for attr in &field.attrs {
+                                match &attr.meta {
+                                    Meta::NameValue(name_value) => match &name_value.value {
+                                        Expr::Lit(lit) => match &lit.lit {
+                                            Lit::Str(s) => doc = s.value().trim().to_string(),
+                                            _ => unimplemented!(),
+                                        },
+                                        _ => unimplemented!(),
+                                    },
                                     _ => unimplemented!(),
-                                },
-                                _ => unimplemented!(),
+                                }
+                            }
+
+                            quote!(
+                                #name: wizard::Wizard::prompt(#doc)
+                            )
+                        });
+
+                        quote!(
+                            #no => {
+                                Self::#name {
+                                    #(#fields,)*
+                                }
                             },
-                            _ => unimplemented!(),
-                        }
+                        )
                     }
+                    Fields::Unnamed(unnamed) => {
+                        let fields = unnamed.unnamed.iter().map(|field| {
+                            let mut doc = String::from("<Unknown>");
+                            for attr in &field.attrs {
+                                match &attr.meta {
+                                    Meta::NameValue(name_value) => match &name_value.value {
+                                        Expr::Lit(lit) => match &lit.lit {
+                                            Lit::Str(s) => doc = s.value().trim().to_string(),
+                                            _ => unimplemented!(),
+                                        },
+                                        _ => unimplemented!(),
+                                    },
+                                    _ => unimplemented!(),
+                                }
+                            }
 
-                    quote!(
-                        #name: wizard::Wizard::prompt(#doc)
-                    )
-                });
+                            quote!(
+                                wizard::Wizard::prompt(#doc)
+                            )
+                        });
 
-                quote!(
-                    #no => {
-                        Self::#name {
-                            #(#fields,)*
-                        }
-                    },
-                )
+                        quote!(
+                            #no => {
+                                Self::#name(#(#fields,)*)
+                            },
+                        )
+                    }
+                    Fields::Unit => quote!(#no => Self::#name,),
+                }
             });
 
             let expanded = quote!(
@@ -125,7 +157,7 @@ pub fn derive(input: TokenStream) -> TokenStream {
 
             expanded.into()
         }
-        Data::Union(_data) => {
+        Data::Union(_) => {
             panic!("Wizard is not implemented yet for `union`");
         }
     }

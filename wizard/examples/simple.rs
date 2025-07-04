@@ -43,6 +43,11 @@ enum Service {
         /// Content
         content: Vec<String>,
     },
+    /// Other
+    Other(
+        /// Inner
+        String,
+    ),
 }
 
 fn main() {

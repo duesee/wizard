@@ -1,0 +1,594 @@
+2025-07-04 14:00:42,377 [   1107]   WARN - c.i.o.u.r.overrides - Conflicting registry key definition for key clion.wsl.sleep.timeout: it was defined by plugin com.intellij.nativeDebug but redefined by plugin com.jetbrains.rust. Consider adding overrides="true" for one of the plugins, see the documentation for com.intellij.openapi.util.registry.RegistryKeyBean.overrides for more details.
+2025-07-04 14:00:45,232 [   3962]   WARN - org.rust.openapiext.CommandLineExt - Failed to run executable
+com.intellij.execution.process.ProcessNotCreatedException: Cannot run program "/nix/store/jqx0gz4p2gybsmnaqxfdqvwwxff6id58-rust-stable/bin/rustc" (in directory "/home/duesee/1_project/Create-PoC-for-imap-sam/imap-sam"): error=2, No such file or directory
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:413)
+	at org.rust.openapiext.CommandLineExtKt$GeneralCommandLine$1.createProcess(CommandLineExt.kt:31)
+	at com.intellij.execution.process.OSProcessHandler.startProcess(OSProcessHandler.java:85)
+	at com.intellij.execution.process.OSProcessHandler.<init>(OSProcessHandler.java:45)
+	at com.intellij.execution.process.CapturingProcessHandler.<init>(CapturingProcessHandler.java:21)
+	at org.rust.cargo.runconfig.RsCapturingProcessHandler.<init>(RsCapturingProcessHandler.kt:16)
+	at org.rust.cargo.runconfig.RsCapturingProcessHandler.<init>(RsCapturingProcessHandler.kt)
+	at org.rust.cargo.runconfig.RsCapturingProcessHandler$Companion.startProcess(RsCapturingProcessHandler.kt:22)
+	at org.rust.openapiext.CommandLineExtKt.execute(CommandLineExt.kt:39)
+	at org.rust.openapiext.CommandLineExtKt.execute$default(CommandLineExt.kt:37)
+	at org.rust.cargo.toolchain.tools.Rustc.getSysroot(Rustc.kt:60)
+	at org.rust.cargo.toolchain.tools.Rustc.getStdlibPathFromSysroot(Rustc.kt:67)
+	at org.rust.cargo.toolchain.tools.Rustc.getStdlibFromSysroot(Rustc.kt:72)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.fetchStdlib$lambda$21$lambda$20(CargoSyncTask.kt:526)
+	at org.rust.util.UnitTestUtilServiceImpl.cachedInner(UnitTestUtilService.kt:56)
+	at org.rust.util.UnitTestUtilService$Companion.cached(UnitTestUtilService.kt:40)
+	at org.rust.util.UnitTestUtilService$Companion.cached$default(UnitTestUtilService.kt:34)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.fetchStdlib$lambda$21(CargoSyncTask.kt:505)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.runWithChildProgress(CargoSyncTask.kt:568)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.access$runWithChildProgress(CargoSyncTask.kt:1)
+	at org.rust.cargo.project.model.impl.CargoSyncTask$SyncContext.runWithChildProgress(CargoSyncTask.kt:296)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.fetchStdlib(CargoSyncTask.kt:504)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.access$fetchStdlib(CargoSyncTask.kt:1)
+	at org.rust.cargo.project.model.impl.CargoSyncTask.doRun$lambda$4$lambda$3(CargoSyncTask.kt:155)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.runWithChildProgress(CargoSyncTask.kt:568)
+	at org.rust.cargo.project.model.impl.CargoSyncTaskKt.runWithChildProgress$default(CargoSyncTask.kt:559)
+	at org.rust.cargo.project.model.impl.CargoSyncTask.doRun(CargoSyncTask.kt:131)
+	at org.rust.cargo.project.model.impl.CargoSyncTask.run(CargoSyncTask.kt:95)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.startTask(CoreProgressManager.java:497)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.startTask(ProgressManagerImpl.java:118)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcessWithProgressAsynchronously$7(CoreProgressManager.java:548)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$4(ProgressRunner.java:252)
+	at com.intellij.openapi.progress.ProgressManager.lambda$runProcess$0(ProgressManager.java:98)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$1(CoreProgressManager.java:229)
+	at com.intellij.platform.diagnostic.telemetry.helpers.TraceKt.use(trace.kt:43)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$runProcess$2(CoreProgressManager.java:228)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.lambda$executeProcessUnderProgress$14(CoreProgressManager.java:680)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.registerIndicatorAndRun(CoreProgressManager.java:755)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computeUnderProgress(CoreProgressManager.java:711)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.executeProcessUnderProgress(CoreProgressManager.java:679)
+	at com.intellij.openapi.progress.impl.ProgressManagerImpl.executeProcessUnderProgress(ProgressManagerImpl.java:77)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.runProcess(CoreProgressManager.java:209)
+	at com.intellij.openapi.progress.ProgressManager.runProcess(ProgressManager.java:98)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$submit$5(ProgressRunner.java:252)
+	at com.intellij.openapi.progress.impl.ProgressRunner$ProgressRunnable.run(ProgressRunner.java:513)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$18(ProgressRunner.java:478)
+	at com.intellij.util.concurrency.ChildContext$runInChildContext$1.invoke(propagation.kt:102)
+	at com.intellij.util.concurrency.ChildContext$runInChildContext$1.invoke(propagation.kt:102)
+	at com.intellij.util.concurrency.ChildContext.runInChildContext(propagation.kt:108)
+	at com.intellij.util.concurrency.ChildContext.runInChildContext(propagation.kt:102)
+	at com.intellij.openapi.progress.impl.ProgressRunner.lambda$launchTask$19(ProgressRunner.java:474)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:735)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1$1.run(Executors.java:732)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400)
+	at java.base/java.util.concurrent.Executors$PrivilegedThreadFactory$1.run(Executors.java:732)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.io.IOException: Cannot run program "/nix/store/jqx0gz4p2gybsmnaqxfdqvwwxff6id58-rust-stable/bin/rustc" (in directory "/home/duesee/1_project/Create-PoC-for-imap-sam/imap-sam"): error=2, No such file or directory
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1170)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1089)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:555)
+	at com.intellij.execution.configurations.GeneralCommandLine.startProcess(GeneralCommandLine.java:571)
+	at com.intellij.execution.configurations.GeneralCommandLine.createProcess(GeneralCommandLine.java:393)
+	... 57 more
+Caused by: java.io.IOException: error=2, No such file or directory
+	at java.base/java.lang.ProcessImpl.forkAndExec(Native Method)
+	at java.base/java.lang.ProcessImpl.<init>(ProcessImpl.java:295)
+	at java.base/java.lang.ProcessImpl.start(ProcessImpl.java:225)
+	at java.base/java.lang.ProcessBuilder.start(ProcessBuilder.java:1126)
+	... 61 more
+2025-07-04 14:00:45,709 [   4439]   WARN - #c.i.s.c.i.StationSocketConnectionLoop - Discovery connection failed with NoSuchFileException (/run/user/1000/jb.station.sock)
+2025-07-04 14:00:56,948 [  15678]   WARN - #c.i.j.w.n.WebTypesNpmLoader - Failed to fetch packages for '@web-types' (Full Text): Request failed with status code 429
+2025-07-04 14:01:17,434 [  36164]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:01:17,434 [  36164]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:01:17,434 [  36164]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:01:17,434 [  36164]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:02:17,564 [  96294] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - Unhandled exception in [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), Dispatchers.Default]
+org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:02:17,566 [  96296] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - RustRover 2025.1.2  Build #RR-251.25410.115
+2025-07-04 14:02:17,566 [  96296] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - JDK: 21.0.6; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2025-07-04 14:02:17,566 [  96296] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - OS: Linux
+2025-07-04 14:02:17,567 [  96297] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - Plugin to blame: Full Line Code Completion version: 251.25410.115
+Exception in thread "DefaultDispatcher-worker-15" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@694c9bc2, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:04:27,482 [ 226212]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:04:27,482 [ 226212]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:04:27,482 [ 226212]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:04:27,482 [ 226212]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:04:53,396 [ 252126]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --example simple --message-format=json --no-default-features --tests
+Exception in thread "DefaultDispatcher-worker-36" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@78c48bf5, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:08:49,411 [ 488141]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:08:49,412 [ 488142]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:08:49,412 [ 488142]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:08:49,412 [ 488142]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:08:51,094 [ 489824]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --message-format=json --all --all-targets --no-default-features
+Exception in thread "DefaultDispatcher-worker-29" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@31851de8, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:10:43,224 [ 601954]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:10:43,224 [ 601954]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:10:43,224 [ 601954]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:10:43,224 [ 601954]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-30" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@62f20c2c, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:12:09,656 [ 688386]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:12:09,656 [ 688386]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:12:09,656 [ 688386]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:12:09,656 [ 688386]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:12:55,862 [ 734592]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --message-format=json --all --all-targets --no-default-features
+Exception in thread "DefaultDispatcher-worker-29" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@7dc6690e, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:13:46,809 [ 785539]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:13:46,809 [ 785539]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:13:46,809 [ 785539]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:13:46,809 [ 785539]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-6" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@79d4f2f, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:15:01,738 [ 860468]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:15:01,738 [ 860468]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:15:01,738 [ 860468]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:15:01,738 [ 860468]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:16:01,772 [ 920502] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - Unhandled exception in [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), Dispatchers.Default]
+org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:234)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:16:01,772 [ 920502] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - RustRover 2025.1.2  Build #RR-251.25410.115
+2025-07-04 14:16:01,772 [ 920502] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - JDK: 21.0.6; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2025-07-04 14:16:01,772 [ 920502] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - OS: Linux
+2025-07-04 14:16:01,772 [ 920502] SEVERE - #c.i.o.a.i.CoroutineExceptionHandlerImpl - Plugin to blame: Full Line Code Completion version: 251.25410.115
+Exception in thread "DefaultDispatcher-worker-7" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:234)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@791eb79a, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:16:05,112 [ 923842]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:16:05,112 [ 923842]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:16:05,112 [ 923842]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:16:05,112 [ 923842]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-5" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@7bb30a9f, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:24:54,542 [1453272]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:24:54,542 [1453272]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:24:54,542 [1453272]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:24:54,542 [1453272]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-31" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@47a13a8e, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:26:41,587 [1560317]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:26:41,587 [1560317]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:26:41,587 [1560317]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:26:41,587 [1560317]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:26:52,556 [1571286]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --message-format=json --all --all-targets --no-default-features
+Exception in thread "DefaultDispatcher-worker-28" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@7c9f2048, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:27:49,019 [1627749]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:27:49,019 [1627749]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:27:49,019 [1627749]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:27:49,019 [1627749]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-5" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@71ab9e29, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:29:43,315 [1742045]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:29:43,315 [1742045]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:29:43,315 [1742045]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:29:43,315 [1742045]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-17" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@57b6e457, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:31:03,695 [1822425]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --lib --message-format=json --no-default-features --tests
+2025-07-04 14:31:03,874 [1822604]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:31:03,874 [1822604]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:31:03,874 [1822604]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:31:03,875 [1822605]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:31:20,804 [1839534] SEVERE - com.jediterm.terminal.model.TerminalTextBuffer - Attempt to get line out of bounds: 12 >= 12
+2025-07-04 14:31:20,805 [1839535] SEVERE - com.jediterm.terminal.model.TerminalTextBuffer - Attempt to get line out of bounds: 12 >= 12
+2025-07-04 14:31:45,154 [1863884]   WARN - #c.i.e.p.OSProcessHandler - Process has been already terminated: /nix/store/7c8v9p9vzvbqclmccis8w12ynb0f9jla-rust-stable/bin/cargo check --message-format=json --all --all-targets --no-default-features
+Exception in thread "DefaultDispatcher-worker-13" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@5afb89a9, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:33:00,990 [1939720]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:33:00,990 [1939720]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:33:00,990 [1939720]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:33:00,990 [1939720]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-12" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@68e46708, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:35:07,136 [2065866]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:35:07,136 [2065866]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:35:07,136 [2065866]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:35:07,136 [2065866]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+2025-07-04 14:35:08,247 [2066977] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - Adjusted offset should be normalised by action
+java.lang.Throwable: Adjusted offset should be normalised by action
+	at com.intellij.openapi.diagnostic.Logger.error(Logger.java:375)
+	at com.maddyhome.idea.vim.newapi.IjVimLogger.error(IjVimLogger.kt:32)
+	at com.maddyhome.idea.vim.helper.StrictMode.fail(StrictMode.kt:29)
+	at com.maddyhome.idea.vim.helper.StrictMode.assertTrue(StrictMode.kt:21)
+	at com.maddyhome.idea.vim.handler.MotionActionHandler.moveToAdjustedOffset(MotionActionHandler.kt:230)
+	at com.maddyhome.idea.vim.handler.MotionActionHandler.doExecuteForEach(MotionActionHandler.kt:209)
+	at com.maddyhome.idea.vim.handler.MotionActionHandler.baseExecute(MotionActionHandler.kt:165)
+	at com.maddyhome.idea.vim.handler.EditorActionHandlerBase.doExecute(EditorActionHandlerBase.kt:144)
+	at com.maddyhome.idea.vim.handler.EditorActionHandlerBase.execute$lambda$0(EditorActionHandlerBase.kt:97)
+	at com.maddyhome.idea.vim.handler.EditorActionHandlerBase.execute(EditorActionHandlerBase.kt:115)
+	at com.maddyhome.idea.vim.helper.IjActionExecutor.executeVimAction$lambda$0(IjActionExecutor.kt:166)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.lambda$executeCommand$0(CoreCommandProcessor.java:218)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction$lambda$6(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWithTemporaryThreadLocal(AnyThreadWriteThreadingSupport.kt:204)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:222)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteIntentReadAction(ApplicationImpl.java:1009)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:218)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:179)
+	at com.maddyhome.idea.vim.helper.IjActionExecutor.executeVimAction(IjActionExecutor.kt:164)
+	at com.maddyhome.idea.vim.KeyHandler$ActionRunner.run(KeyHandler.kt:345)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.lambda$executeCommand$2(CoreCommandProcessor.java:228)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction$lambda$6(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWithTemporaryThreadLocal(AnyThreadWriteThreadingSupport.kt:204)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:222)
+	at com.intellij.openapi.application.impl.ApplicationImpl.runWriteIntentReadAction(ApplicationImpl.java:1009)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:224)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:179)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:169)
+	at com.intellij.openapi.command.impl.CoreCommandProcessor.executeCommand(CoreCommandProcessor.java:155)
+	at com.maddyhome.idea.vim.helper.IjActionExecutor.executeCommand(IjActionExecutor.kt:149)
+	at com.maddyhome.idea.vim.KeyHandler.executeCommand(KeyHandler.kt:262)
+	at com.maddyhome.idea.vim.KeyHandler.finishedCommandPreparation$vim_engine(KeyHandler.kt:204)
+	at com.maddyhome.idea.vim.KeyHandler.processKey$lambda$11$lambda$8(KeyHandler.kt:175)
+	at com.maddyhome.idea.vim.KeyProcessResult$SynchronousKeyProcessBuilder.build$lambda$1(KeyHandler.kt:468)
+	at com.maddyhome.idea.vim.KeyProcessResult$Executable.execute(KeyHandler.kt:429)
+	at com.maddyhome.idea.vim.KeyHandler.handleKey(KeyHandler.kt:126)
+	at com.maddyhome.idea.vim.KeyHandler.handleKey(KeyHandler.kt:107)
+	at com.maddyhome.idea.vim.action.VimShortcutKeyAction.actionPerformed(VimShortcutKeyAction.kt:90)
+	at com.intellij.openapi.actionSystem.ActionWrapperUtil.actionPerformed(ActionWrapperUtil.java:43)
+	at com.intellij.openapi.actionSystem.AnActionWrapper.actionPerformed(AnActionWrapper.java:31)
+	at com.intellij.openapi.actionSystem.ex.ActionUtil.doPerformActionOrShowPopup(ActionUtil.kt:383)
+	at com.intellij.openapi.keymap.impl.ActionProcessor.performAction(ActionProcessor.java:32)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher$actionProcessor$1.performAction(IdeKeyEventDispatcher.kt:498)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcherKt.doPerformActionInner$lambda$8$lambda$7(IdeKeyEventDispatcher.kt:846)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:109)
+	at com.intellij.openapi.application.TransactionGuardImpl.performUserActivity(TransactionGuardImpl.java:98)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcherKt.doPerformActionInner$lambda$8(IdeKeyEventDispatcher.kt:846)
+	at com.intellij.openapi.actionSystem.impl.ActionManagerImpl.performWithActionCallbacks(ActionManagerImpl.kt:1167)
+	at com.intellij.openapi.actionSystem.ex.ActionUtil.performDumbAwareWithCallbacks(ActionUtil.kt:405)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcherKt.doPerformActionInner(IdeKeyEventDispatcher.kt:844)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcherKt.access$doPerformActionInner(IdeKeyEventDispatcher.kt:1)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processAction(IdeKeyEventDispatcher.kt:576)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processAction(IdeKeyEventDispatcher.kt:511)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.processActionOrWaitSecondStroke(IdeKeyEventDispatcher.kt:450)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.inInitState(IdeKeyEventDispatcher.kt:443)
+	at com.intellij.openapi.keymap.impl.IdeKeyEventDispatcher.dispatchKeyEvent(IdeKeyEventDispatcher.kt:305)
+	at com.intellij.ide.IdeEventQueue.dispatchKeyEvent(IdeEventQueue.kt:515)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent$lambda$17(IdeEventQueue.kt:474)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction$lambda$6(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWithTemporaryThreadLocal(AnyThreadWriteThreadingSupport.kt:204)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:274)
+	at com.intellij.openapi.application.impl.AnyThreadWriteThreadingSupport.runPreventiveWriteIntentReadAction(AnyThreadWriteThreadingSupport.kt:218)
+	at com.intellij.ide.IdeEventQueue._dispatchEvent(IdeEventQueue.kt:474)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$12$lambda$11$lambda$10$lambda$9(IdeEventQueue.kt:307)
+	at com.intellij.openapi.progress.impl.CoreProgressManager.computePrioritized(CoreProgressManager.java:864)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$12$lambda$11$lambda$10(IdeEventQueue.kt:306)
+	at com.intellij.ide.IdeEventQueueKt.performActivity$lambda$3(IdeEventQueue.kt:958)
+	at com.intellij.openapi.application.TransactionGuardImpl.performActivity(TransactionGuardImpl.java:117)
+	at com.intellij.ide.IdeEventQueueKt.performActivity(IdeEventQueue.kt:958)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent$lambda$12(IdeEventQueue.kt:301)
+	at com.intellij.ide.IdeEventQueue.dispatchEvent(IdeEventQueue.kt:341)
+	at java.desktop/java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:207)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:128)
+	at java.desktop/java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:117)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:113)
+	at java.desktop/java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:105)
+	at java.desktop/java.awt.EventDispatchThread.run(EventDispatchThread.java:92)
+2025-07-04 14:35:08,248 [2066978] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - RustRover 2025.1.2  Build #RR-251.25410.115
+2025-07-04 14:35:08,248 [2066978] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - JDK: 21.0.6; VM: OpenJDK 64-Bit Server VM; Vendor: JetBrains s.r.o.
+2025-07-04 14:35:08,248 [2066978] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - OS: Linux
+2025-07-04 14:35:08,248 [2066978] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - Plugin to blame: IdeaVim version: 2.25.1
+2025-07-04 14:35:08,249 [2066979] SEVERE - #com.maddyhome.idea.vim.helper.StrictMode - Current Command: VimMotionArrowUpAction
+Exception in thread "DefaultDispatcher-worker-32" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@34ced925, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
+2025-07-04 14:37:25,013 [2203743]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - Could not start dynamically linked executable: /home/duesee/.cache/JetBrains/RustRover2025.1/full-line/models/c610418f-6d31-3e9b-9b39-f191d35dd3c6/full-line-inference.zip_extracted/full-line-inference
+
+2025-07-04 14:37:25,013 [2203743]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - NixOS cannot run dynamically linked executables intended for generic
+
+2025-07-04 14:37:25,013 [2203743]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - linux environments out of the box. For more information, see:
+
+2025-07-04 14:37:25,013 [2203743]   WARN - #o.j.c.f.l.i.p.d.a.n.NativeServerDiagnostic$Companion - https://nix.dev/permalink/stub-ld
+
+Exception in thread "DefaultDispatcher-worker-15" org.jetbrains.completion.full.line.local.NativeServerException: java.lang.RuntimeException: Cannot start the native server
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerExceptionFactory.throwException(NativeServerExceptionFactory.kt:21)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion.create-u4uj9nY(NativeServerConnection.kt:117)
+	at org.jetbrains.completion.full.line.local.services.helpers.NativeServerConnection$Companion$create$1.invokeSuspend(NativeServerConnection.kt)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33)
+	at kotlinx.coroutines.internal.ScopeCoroutine.afterResume(Scopes.kt:29)
+	at kotlinx.coroutines.AbstractCoroutine.resumeWith(AbstractCoroutine.kt:99)
+	at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:46)
+	at kotlinx.coroutines.DispatchedTask.run(DispatchedTask.kt:102)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler.runSafely(CoroutineScheduler.kt:608)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.executeTask(CoroutineScheduler.kt:873)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.runWorker(CoroutineScheduler.kt:763)
+	at kotlinx.coroutines.scheduling.CoroutineScheduler$Worker.run(CoroutineScheduler.kt:750)
+	Suppressed: kotlinx.coroutines.internal.DiagnosticCoroutineContextException: [Kernel@l89fhvq9flm7i03l2lmk, Rete(failFast=false, commands=capacity=2147483647,data=[onReceive], reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3, dbSource=ReteDbSource(reteState=kotlinx.coroutines.flow.StateFlowImpl@28ac3dc3)), DbSourceContextElement(kernel Kernel@l89fhvq9flm7i03l2lmk), ComponentManager(ApplicationImpl@354744589), com.intellij.codeWithMe.ClientIdContextElementPrecursor@307ed797, CoroutineName(org.jetbrains.completion.full.line.impl.local.LocalGeneratorsCache), StandaloneCoroutine{Cancelling}@629df660, Dispatchers.Default]
+Caused by: java.lang.RuntimeException: Cannot start the native server
+	... 11 more
